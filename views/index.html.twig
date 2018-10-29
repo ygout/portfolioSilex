@@ -1,0 +1,52 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
+    
+        <div  class="container" >
+            <br>
+            <div class="jumbotron">
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-1 text-center">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <img class="img-responsive" src="{{ app.request.basepath }}/images/moi.jpg">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <h1 class="welcomeText heading" id="bla"> Yohann Goutaret </h1>
+                    </div>
+                    <h3 class="welcomeText headingInfo">Étudiant<br>Développeur Php/MySql</h3>
+                </div>
+            </div>
+            <div class="container">
+                <h3 class="introBloc"><span class="glyphicon glyphicon-user"></span> Qui suis-je?</h3>
+                <div class="jumbotron">
+                    <div class="row">
+                        <div align="justify">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Petite présentation</h3><h3 class="panel-title"></h3>
+                                </div>
+                                <div class="panel-body">
+
+                                    <p class="font21">
+                                        &nbsp;&nbsp;&nbsp;Je m’appelle Yohann GOUTARET
+
+                                        j’ai 22 ans et je suis titulaire du BTS SIO (Services Informatiques aux Organisations) option SLAM (Solution Logicielle et Application Métier). </p>
+                                    <p class="font21">  
+                                        &nbsp;&nbsp;&nbsp;Passionné par le monde informatique je souhaite mettre à profit mes compétences en développement web.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+   
+{% endblock %}

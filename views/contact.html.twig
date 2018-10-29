@@ -1,0 +1,110 @@
+{% extends 'layout.html.twig' %}
+{% set adminMenu = true %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<h2 class="text-center">{{ block('title') }}</h2>
+
+<div class ="container " >
+    <div class="row" >
+        <div class="col-sm-10 col-sm-offest-1">
+            <div class="col-sm-4">
+                <div class="card-container">
+                    <div class="card">
+                        <div class="front">
+                            <div class="cover">
+                                <img >
+                            </div>
+                            <div class="user">
+                                <img class="img-circle" src="images/moi.jpg">
+                            </div>
+                            <div class="content">
+                                <div class="main">
+                                    <h3 class="name">Yohann Goutaret</h3>
+                                    <p class="profession">Étudiant</p>
+                                    <h5><i class="fa fa-map-marker fa-fw text-muted"></i> Lyon, France</h5>
+                                    <h5><i class="fa fa-building-o fa-fw text-muted"></i> en recherche d'entreprise pour alternance </h5>
+                                    <h5><i class="fa fa-envelope-o fa-fw text-muted"></i> yohann.goutaret@gmail.com</h5>
+                                </div>
+                                <div class="footer">
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- end front panel -->
+                        <div class="back">
+
+                            <div class="content">
+                                <div class="main">
+                                    <h4 class="text-center">Experience</h4>
+                                    <p>2 années d'études dans le développement</p>
+                                    <h4 class="text-center">Intérêts</h4>
+                                    <p>Développement web php/mysql principalement.</p>
+                                </div>
+                            </div>
+
+                        </div> <!-- end back panel -->
+                    </div> <!-- end card -->
+                </div> <!-- end card-container -->
+            </div>
+            <div class="col-sm-8"> <!-- formulaire de contact -->
+                <div class="well">
+                                {% if sent is defined %}
+                        <div class="alert alert-success">Message envoyé.</div>
+                                {% else %}
+
+                        <form class="form-horizontal" role="form" method="post" action="{{ path('contact') }}">
+                            <legend class="text-center">Me contacter</legend>
+                            <div class="form-group">
+                                <label for="name" class="col-sm-2 control-label">Nom</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Entrer votre nom" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject" class="col-sm-2 control-label">Sujet</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Sujet" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="col-sm-2 control-label">Email</label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="message" class="col-sm-2 control-label">Message</label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" rows="4" name="message"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="col-sm-10 col-sm-offset-2">
+                                    <input id="submit" name="submit" type="submit" value="Envoyer" class="btn btn-primary">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-10 col-sm-offset-2">
+                                    <! Will be used to display an alert to the user>
+                                </div>
+                            </div>
+                        </form>
+                            {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+
+
+{% endblock %}

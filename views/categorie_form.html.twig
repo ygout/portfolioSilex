@@ -1,0 +1,35 @@
+{% extends 'layout.html.twig' %}
+{% set adminMenu = true %}
+
+{% block title %}{{ libelle }}{% endblock %}
+
+{% block content %}
+<h2 class="text-center">{{ block('title') }}</h2>
+{% for flashMessage in app.session.flashbag.get('success') %}
+<div class="alert alert-success">
+    {{ flashMessage }}
+</div>
+{% endfor %}
+
+<div class="well">
+{{ form_start(categorieForm, { 'attr': {'class': 'form-horizontal'} }) }}
+    <div class="form-group">
+        {{ form_label(categorieForm.libelle, null, { 'label_attr':  {
+            'class': 'col-sm-4 control-label'
+        }}) }}
+        <div class="col-sm-6">
+            {{ form_errors(categorieForm.libelle) }}
+            {{ form_widget(categorieForm.libelle, { 'attr':  {
+                'class': 'form-control'
+            }}) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-4 col-sm-3">
+            <input type="submit" class="btn btn-primary" value="Save" />
+        </div>
+    </div>
+{{ form_end(categorieForm) }}
+</div>
+{% endblock %}

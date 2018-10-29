@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="{{ app.request.basepath }}/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{ app.request.basepath }}/css/portfolio.css" rel="stylesheet">
+        <link href="{{ app.request.basepath }}/css/contact.css" rel="stylesheet">
+        <link href="{{ app.request.basepath }}/css/cv.css" rel="stylesheet">
+        <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Portfolio - {% block title %}{% endblock %}</title>
+    </head>
+    <body>
+        <div class="container ">
+
+            <nav id="navbartop" class="navbar navbar-inverse navbar-fixed-top " role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-target">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/"><div id="nom">Yohann Goutaret - Portfolio</div></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbar-collapse-target">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/"><strong>Accueil</strong></a></li>
+                            <li><a href="/cv"><strong>CV</strong></a></li>
+                            <li><a href="/projets"><strong>Projets</strong></a></li>
+                            <li><a href="/contact"><strong>Contact</strong></a></li>
+                        </ul> 
+                        <ul class="nav navbar-nav navbar-right">
+
+                            {% if app.security.token and is_granted('IS_AUTHENTICATED_FULLY') %}
+                                {% if app.security.token and is_granted('ROLE_ADMIN') %}
+                            <li class="{% if adminMenu is defined %}active{% endif %}"><a href="/admin"><span class="glyphicon glyphicon-cog"></span> Administration</a></li>
+                                    {% endif %}
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        <span class="glyphicon glyphicon-user"></span> Bienvenue, {{ app.security.token.user.username }} <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{{ path('logout') }}">Log out</a></li>
+                                    </ul>
+                                </li>
+                            {% else %}
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        <span class="glyphicon glyphicon-user"></span> Administration <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{{ path('login') }}">Log in</a></li>
+                                    </ul>
+                                </li>
+                            {% endif %}
+                            </ul>
+
+
+                        </div>
+                    </div><!-- /.container -->
+                </nav>
+
+                <div class="container">{% block content %}{% endblock %}</div>
+                <footer class="footer nav navbar-fixed-bottom">
+                    <div class="container">
+                        <div class="navbar-brand" id="nom">Yohann Goutaret © 2015</div>
+                    </div>
+                </footer>
+            </div>
+
+            <!-- jQuery -->
+            <script src="{{ app.request.basepath }}/lib/jQuery/jquery-1.11.3.min.js"></script>
+            <!-- JavaScript Boostrap plugin -->
+            <script src="{{ app.request.basepath }}/lib/bootstrap/js/bootstrap.min.js"></script>
+            
+            <script src="{{ app.request.basepath }}/lib/jquery/tooltip.js"></script>
+        </body>
+    </html>

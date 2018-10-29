@@ -1,0 +1,79 @@
+{% extends 'layout.html.twig' %}
+{% set adminMenu = true %}
+
+{% block title %}Nouveau projet{% endblock %}
+
+{% block content %}
+<h2 class="text-center">{{ block('title') }}</h2>
+
+<div class ="container " >
+
+    <!-- formulaire de contact -->
+    <div class="well">
+
+
+        <form class="form-horizontal" role="form" method="post" action="{{ path('projet/add') }}">
+
+            <div class="form-group">
+                <label for="titre" class="col-sm-2 control-label">Titre</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="titre" name="titre" placeholder="Entrer le titre" value="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="categorie" class="col-sm-2 control-label">Catégorie</label>
+                <div class="col-xs-5 selectContainer">
+                    
+                    <select id="idCategorie" name="idCategorie" class="form-control">
+                        {% for categorie in categories %}
+                        <option value="{{categorie.id}}">{{categorie.libelle}}</option>
+                        {%endfor%}
+                    </select>
+                    
+                </div>
+              
+            </div>
+            <div class="form-group">
+                <label for="langages" class="col-sm-2 control-label">Langages</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" rows="4" name="langages" ></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="outils" class="col-sm-2 control-label">Outils</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" rows="4" name="outils"></textarea>
+                </div>
+            </div>
+            
+             <div class="form-group">
+                <label for="description" class="col-sm-2 control-label">Description</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" rows="4" name="description"></textarea>
+                </div>
+            </div>
+             <div class="form-group">
+                <label for="bilan" class="col-sm-2 control-label">Bilan</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" rows="4" name="bilan"></textarea>
+                </div>
+            </div>
+            
+
+            <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-2">
+                    <input id="submit" name="submit" type="submit" value="Ajouter" class="btn btn-primary">
+                </div>
+            </div>
+            
+        </form>
+                        
+    </div>
+
+</div>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
+
+    <div  class="container" style="margin-top : 60px;">
+        <!-- Portfolio Item Row -->
+        <div class="row">
+
+            <div class="col-md-8">
+                <img class="img-responsive" src="http://placehold.it/750x500" alt="">
+            </div>
+
+            <div class="col-md-4">
+                <h3>Description</h3>
+                <p>{{projet.description }}</p>
+                <h3>Projet details</h3>
+                <ul>
+                    <li>{{projet.outils }}</li>
+                    <li>{{projet.langages}}</li>
+
+                </ul>
+                <h3>Bilan</h3>
+                <p>{{ projet.bilan }} </p>
+            </div>
+
+        </div>
+        <!-- /.row -->
+    </div>
+
+{% endblock %}
